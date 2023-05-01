@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Phonebook</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="action.js" defer></script>
+</head>
+<body>
+    <main class="main">
+        <form action="#" id="createContact">
+        <div class="above">
+        <span class="toggler">X</span>
+            <figure class="profileImg">
+                <img src="./img/insta.png" id="thumbnail">
+                <input id="thumbNailUpload" type="file" accept="image/*">
+                <label for="thumbNailUpload">Upload</label>
+                
+            </figure>
+            <div class="name"><span class="firstname">Charlesvan</span>  <span class="lastname">Lastname</span></div>
+        </div>
+        <div class="below">
+            <input type="text" placeholder="First Name" name='firstname'>
+            <input type="text" placeholder="Last Name" name='lastname'>
+            <input type="email" placeholder="Enter Email" name='email'>
+            <input type="text" placeholder="Mobile Number" name='mobile'>
+            <input type="text" placeholder="Home Number" name='home'>
+            <input type="text" placeholder="Work Number" name='work'>
+            <input type="text" placeholder="Your Address" name='address'>
+
+
+
+            <button id="addPerson">Create</button>
+        </div>          
+        </form>
+        <aside class="nav">
+            <div class="title"><span class="search"><svg id="searchSignal" width="40px" height="40px" viewBox="0 0 512 512"><path d="M256,80A176,176,0,1,0,432,256,176,176,0,0,0,256,80Z" style="fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:32px"/><path d="M232,160a72,72,0,1,0,72,72A72,72,0,0,0,232,160Z" style="fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:32px"/><line x1="283.64" y1="283.64" x2="336" y2="336" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-miterlimit:10;stroke-width:32px"/></svg><input type="search" class="searchBoxHide" name="search" id="search"></span><span>Phonebook</span> <button id="addContact"><svg width="30px" height="30px" viewBox="0 0 512 512"><path d="M376,144c-3.92,52.87-44,96-88,96s-84.15-43.12-88-96c-4-55,35-96,88-96S380,90,376,144Z" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><path d="M288,304c-87,0-175.3,48-191.64,138.6-2,10.92,4.21,21.4,15.65,21.4H464c11.44,0,17.62-10.48,15.65-21.4C463.3,352,375,304,288,304Z" style="fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:32px"/><line x1="88" y1="176" x2="88" y2="288" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/><line x1="144" y1="232" x2="32" y2="232" style="fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px"/></svg>
+
+            </button></div>
+            <div class="overview">
+            <div class="shuffler"><span>Filter</span><div id="filter"><ion-icon name="filter-outline"></ion-icon>
+                    <div class="shuffle-pick">
+                        <ul>
+                            <li class="a2z">
+                                <svg fill="#fff" width="22px" height="22px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                    <title>arrow-down-a-z</title>
+                                    <path d="M11.116 24.115l-2.866 2.867v-24.982c0-0.69-0.56-1.25-1.25-1.25s-1.25 0.56-1.25 1.25v0 24.981l-2.866-2.866c-0.226-0.226-0.539-0.366-0.884-0.366-0.691 0-1.251 0.56-1.251 1.251 0 0.346 0.14 0.658 0.367 0.885v0l5 5c0.012 0.012 0.029 0.016 0.042 0.027 0.103 0.099 0.223 0.18 0.356 0.239l0.008 0.003 0.001 0c0.141 0.060 0.306 0.095 0.478 0.095 0.345 0 0.657-0.139 0.883-0.365l5-5c0.227-0.226 0.367-0.539 0.367-0.885 0-0.691-0.56-1.251-1.251-1.251-0.345 0-0.658 0.14-0.884 0.366v0zM29.648 13.66l-5.639-12c-0.131-0.274-0.406-0.46-0.724-0.46-0 0-0 0-0 0h-0.584c-0 0-0 0-0 0-0.318 0-0.593 0.186-0.722 0.455l-0.002 0.005-5.639 12c-0.048 0.1-0.076 0.217-0.076 0.341 0 0.441 0.358 0.799 0.799 0.799 0 0 0.001 0 0.001 0h0.531c0 0 0 0 0 0 0.318 0 0.593-0.186 0.721-0.455l0.002-0.005 1.207-2.574h6.924l1.223 2.577c0.132 0.272 0.406 0.457 0.723 0.457h0.531c0 0 0 0 0.001 0 0.442 0 0.8-0.358 0.8-0.8 0-0.123-0.028-0.24-0.078-0.345l0.002 0.005zM20.5 9.669l2.49-5.276 2.479 5.276zM27.584 17.204h-8.908c-0.442 0-0.8 0.358-0.8 0.8v0.496c0 0.442 0.358 0.8 0.8 0.801h6.602l-7.512 9.799c-0.103 0.133-0.165 0.302-0.165 0.485 0 0 0 0.001 0 0.001v-0 0.41c0 0.442 0.358 0.8 0.8 0.801h9.166c0.442-0.001 0.8-0.359 0.801-0.801v-0.496c-0.001-0.442-0.359-0.8-0.801-0.801h-6.859l7.512-9.799c0.104-0.133 0.166-0.302 0.166-0.486v0-0.41c-0.001-0.442-0.359-0.8-0.801-0.8h-0z"></path>
+                                    </svg>
+                                  Alphabetical  
+                            </li>
+                            <li class="z2a">
+                                <svg fill="#fff" width="22px" height="22px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                    <title>arrow-down-a-z</title>
+                                    <path d="M11.116 24.115l-2.866 2.867v-24.982c0-0.69-0.56-1.25-1.25-1.25s-1.25 0.56-1.25 1.25v0 24.981l-2.866-2.866c-0.226-0.226-0.539-0.366-0.884-0.366-0.691 0-1.251 0.56-1.251 1.251 0 0.346 0.14 0.658 0.367 0.885v0l5 5c0.012 0.012 0.029 0.016 0.042 0.027 0.103 0.099 0.223 0.18 0.356 0.239l0.008 0.003 0.001 0c0.141 0.060 0.306 0.095 0.478 0.095 0.345 0 0.657-0.139 0.883-0.365l5-5c0.227-0.226 0.367-0.539 0.367-0.885 0-0.691-0.56-1.251-1.251-1.251-0.345 0-0.658 0.14-0.884 0.366v0zM29.656 29.66l-5.639-12c-0.131-0.274-0.406-0.46-0.724-0.46-0 0-0 0-0 0h-0.584c-0 0-0 0-0 0-0.318 0-0.593 0.186-0.722 0.455l-0.002 0.005-5.64 12c-0.048 0.1-0.077 0.217-0.077 0.341 0 0.441 0.358 0.799 0.799 0.799 0 0 0.001 0 0.001 0h0.532c0 0 0 0 0 0 0.318 0 0.593-0.186 0.721-0.456l0.002-0.005 1.207-2.574h6.924l1.223 2.578c0.132 0.272 0.406 0.456 0.723 0.457h0.531c0 0 0 0 0 0 0.442 0 0.8-0.358 0.8-0.8 0-0.124-0.028-0.241-0.078-0.345l0.002 0.005zM20.508 25.668l2.49-5.275 2.479 5.275zM18.4 14.796h9.166c0.442-0 0.8-0.358 0.801-0.8v-0.497c-0.001-0.442-0.359-0.8-0.801-0.8h-6.859l7.512-9.799c0.103-0.133 0.166-0.302 0.166-0.486v-0.411c-0.001-0.442-0.359-0.8-0.801-0.8h-8.908c-0.442 0-0.8 0.358-0.8 0.8v0.497c0 0.442 0.358 0.8 0.8 0.8h6.602l-7.512 9.799c-0.103 0.133-0.165 0.302-0.165 0.486 0 0 0 0.001 0 0.001v-0 0.411c0 0.442 0.358 0.8 0.8 0.8h0z"></path>
+</svg>
+Reverse
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <ul class="sideList">
+                    <li num="01">
+                        <span class="sideImage">
+                            A
+                        </span>
+                        <span class="sideName">Anthony Wright</span>
+                        <button class="actions"><ion-icon name="alert-circle-outline"></ion-icon></button>
+                    </li>
+                </ul>
+            </div>
+            
+        </aside>
+        <section class="book">
+            <ul class="mainList">
+                <!-- <li class="contact">
+                    <div class="top">
+                        <div class="mainName"><span class="firstname" editable="true">Aurilyn Bast</span> <span class="lastname">Careman</span></div>
+
+                        <div class="ctrl">
+                            <button class="delete">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </button>
+                            <button class="edit">
+                                <ion-icon name="create-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <span class="image">
+                    <img class="contactThumb" src="https://source.unsplash.com/B4TjXnI0Y2c" alt="">
+                    </span>
+                    <div class="info">
+                        
+                        <div class="numbers">
+                            <span class="mobile">
+                                <ion-icon name="call-outline"></ion-icon><label for="mobile">Mobile:</label><input type="text" disabled value="088-6849-89">
+                            </span>
+                            <span class="home">
+                                <ion-icon name="home-outline"></ion-icon><label for="home">Home:</label><input type="text" disabled value="0778-030-886">
+                            </span>
+                            <span class="work">
+                                <ion-icon name="timer-outline"></ion-icon><label for="work">Work:</label><input type="text" disabled value="077-853-5244">
+                            </span>
+
+                        </div>
+                        <div class="addresses">
+                            <span>
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <label for="Email">Email:</label>
+                                <input type="email" name="email" id="email" value="cvanmaxx@gmail.com" disabled>
+                            </span>
+                            <span class="homeAddress">
+                                <ion-icon name="location-outline"></ion-icon>
+                                <label for="homeAddress">Address:</label>
+                                <input type="text" value="Stockton Creek, Somalia Drive, Monrovia" disabled style="width: 20rem;">
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li class="contact">
+                    <div class="top">
+                        <div class="mainName"><span class="firstname">Gregory Andy </span> <span class="lastname">Beeman</span></div>
+
+                        </button>
+                        <div class="ctrl">
+                            <button class="delete">
+                                <ion-icon name="trash-outline"></ion-icon>
+                            </button>
+                            <button id="edit">
+                                <ion-icon name="create-outline"></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <span class="image">
+                    <img class="contactThumb" src="https://source.unsplash.com/B4TjXnI0Y2c" alt="">
+                    </span>
+                    <div class="info">
+                        
+                        <div class="numbers">
+                            <span class="mobile">
+                                <ion-icon name="call-outline"></ion-icon><label for="mobile">Mobile:</label><input type="text" disabled value="088-6849-89">
+                            </span>
+                            <span class="home">
+                                <ion-icon name="home-outline"></ion-icon><label for="home">Home:</label><input type="text" disabled value="0778-030-886">
+                            </span>
+                            <span class="work">
+                                <ion-icon name="timer-outline"></ion-icon><label for="work">Work:</label><input type="text" disabled value="077-853-5244">
+                            </span>
+
+                        </div>
+                        <div class="addresses">
+                            <span>
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <label for="Email">Email:</label>
+                                <input type="email" name="email" id="email" value="cvanmaxx@gmail.com" disabled>
+                            </span>
+                            <span class="homeAddress">
+                                <ion-icon name="location-outline"></ion-icon>
+                                <label for="homeAddress">Address:</label>
+                                <input type="text" value="Stockton Creek, Somalia Drive, Monrovia" disabled style="width: 20rem;">
+                            </span>
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+        </section>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
